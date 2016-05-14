@@ -25,6 +25,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Yazılım</a></li>
+                    <li><a href="#">Donanım</a></li>
+                    <li><a href="#">Konu Dışı</a></li>
                     <li><a href="#">Hakkımızda</a></li>
                     <li><a href="#">İletişim</a></li>
                     

@@ -8,9 +8,9 @@
       foreach( $query as $row ){                
         $detay = $row["MakaleIcerik"];
         $uzunluk = strlen($detay);
-        $limit = 500;
+        $limit = 600;
         if ($uzunluk > $limit) {
-          $detay = substr($detay,0,$limit) . "<br /><button>Deneme</button>";
+          $detay = substr($detay,0,$limit) . "...<br /><button>Deneme</button>";
           
         }
         print "<div class=\"panel panel-default\">";
