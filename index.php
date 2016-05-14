@@ -1,5 +1,5 @@
 <?php
 
-echo "Deneme";
+echo "Deneme yanılma";
 
 ?>
