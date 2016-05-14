@@ -6,12 +6,15 @@
     <title>Admin Paneli Giriş</title>
 	</head>
     <body>
+        
         <div class="login-page">
             <div class="form">
                 <form class="login-form">
+                <h3><b>Admin Paneli</b></h3>
+                <div class="cizgi"></div>
                 <input type="text" placeholder="Kullanıcı Adı"/>
                 <input type="password" placeholder="Parola"/>
-                <button>Giriş</button>
+                <button>GİRİŞ</button>
                 </form>
             </div>
          </div>
