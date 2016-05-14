@@ -1,9 +1,19 @@
 
 .container-fluid{ max-width:1000px; margin: 0 auto;}
 .container{ max-width:1000px; margin: 0 auto;}
+
+/* Navbar */
 .navbar{background-color: #6B4E90; color: #FFF;}
 .navbar-default .navbar-nav li:hover{background-color:#1C053A;}
 .navbar-default .navbar-nav li>a:hover{color:#FFF;}
+
+/* İçerik */
+.panel-body {text-align: justify;}
+.panel-default .panel-heading {background-color: #e1ccfd;}
+
+/* Aside */
+.liste {list-style: none; margin-left: -35px;}
+
 /* Footer */
 footer {background-color:#333; color:#FFF;}
 .sosyal{margin-bottom: 5px; margin-right: 1px; opacity: 1;}
@@ -14,11 +24,3 @@ footer {background-color:#333; color:#FFF;}
 .altmenu >li>a:hover{color: olive; transition-duration:0.5s;}
 .cizgi {border-bottom: 2px solid #ffffff; margin-bottom: 15px; margin-top: 8px;}
 .altyazi {font-family: sans-serif; font-size: 12px; color: #FFF;}
-
-/* İçerik */
-.panel-body {text-align: justify;}
-
-/* Aside */
-.liste {list-style: none; margin-left: -35px;}
-
-.panel-default .panel-heading {background-color: #e1ccfd;}
