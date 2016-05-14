@@ -1,3 +1,14 @@
 
-.container-fluid{ max-width:1100px; margin: 0 auto;}
-.container{ max-width:1100px; margin: 0 auto;}
+.container-fluid{ max-width:1000px; margin: 0 auto;}
+.container{ max-width:1000px; margin: 0 auto;}
+
+/* Footer */
+footer {background-color:#333; color:#FFF;}
+.sosyal{margin-bottom: 5px; margin-right: 1px; opacity: 1;}
+.sosyal:hover{opacity: 0.7;}
+.fbaslik{font-family: 'Bree Serif', sans-serif; font-size:14px;}
+.altmenu {list-style-type: none; margin: 0 auto; padding: 0px;}
+.altmenu >li>a{font-family: sans-serif; color:#FFF; font-size:12px; text-decoration: none;}
+.altmenu >li>a:hover{color: olive; transition-duration:0.5s;}
+.cizgi {border-bottom: 2px solid #ffffff; margin-bottom: 15px; margin-top: 8px;}
+.altyazi {font-family: sans-serif; font-size: 12px; color: #FFF;}
