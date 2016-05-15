@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Web Blog</a>
+                <a class="navbar-brand" href="index.php">Web Blog</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

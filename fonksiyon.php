@@ -21,7 +21,27 @@
         print "<span class='tarih'>".$sonuc['EklenmeTarihi']."</span> 
         </div>";
         print "</div>";
-      
+        //Yorum kısmı
+        
+        print "<div class='panel panel-default'>";
+          print "<div class='panel-body' style='background-color: #eee;'>";
+            yorumGetir($id);
+          print "</div>";
+        print "</div>";
+        
+        
+    }
+  }
+  
+  function yorumGetir($makaleid){
+    include("ayar.php");
+    $komut = $db->prepare("SELECT * FROM yorumlar WHERE MakaleID = ?");
+    $komut->execute(array($makaleid));
+    $sonuc = $komut->fetchAll(PDO::FETCH_ASSOC);
+    foreach( $sonuc as $row ){
+      print "<div class = 'panel panel-default' style='background-color: #e1ccfd'>";
+        print $row["AdSoyad"] . " " . $row["Tarih"] . "<br />" . $row["Yorum"]. "<br />";
+      print "</div>";
     }
   }
   

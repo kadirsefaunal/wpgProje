@@ -5,9 +5,11 @@ include("ayar.php");
     include("fonksiyon.php");
     $id = $_GET["makaleid"];
     if($id == null){
-        header("location: index.php");
+      header("location: index.php");
+    }else {
+      makaleGetir($id);  
     }
-    makaleGetir($id);
-     require('include/aside.php');
+    
+  require('include/aside.php');
   require('include/footer.php');
 ?>
