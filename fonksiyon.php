@@ -12,7 +12,6 @@
       print "</div>";
       print "<div class='panel-footer'><img src='img/sefa.png' />Kadir Sefa Ünal</div>";
       print "</div>";
-      
     }
   }
   
