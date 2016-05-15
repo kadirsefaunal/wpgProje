@@ -5,13 +5,8 @@
     <div class="panel-body">
     <ul class="liste">
     <?php 
-    $query = $db->query("SELECT MakaleBaslik FROM makale ORDER BY MakaleID DESC, MakaleBaslik LIMIT 0,5", PDO::FETCH_ASSOC);
-    if ( $query->rowCount() ){
-      foreach( $query as $row ){
-                        
-        print "<li>" . $row["MakaleBaslik"] . "</li>";
-      }
-      }
+      include("fonksiyon.php");
+      sonKonular();
     ?>
     </ul>
     </div>
