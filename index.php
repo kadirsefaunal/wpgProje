@@ -22,18 +22,6 @@
   
   require('include/aside.php');
   require('include/footer.php');
-  
-  
-  
-  //Goruntulencek Metnin Tam Hali
-
-//Var olan metin içindeki karakter sayısı
-
-//Kaç Karakter Göstermek İstiyorsunuz
-
-//Uzun olan yer "devamı..." ile değişecek.
-
-
 ?>
 
 
