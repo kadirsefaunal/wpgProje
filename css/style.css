@@ -24,3 +24,10 @@ footer {background-color:#333; color:#FFF;}
 .altmenu >li>a:hover{color: #6B4E90; transition-duration:0.5s;}
 .cizgi {border-bottom: 2px solid #ffffff; margin-bottom: 15px; margin-top: 8px;}
 .altyazi {font-family: sans-serif; font-size: 12px; color: #FFF;}
+
+/* Makale İçerik */
+.yazar {margin-right: 12px;}
+.tarih {float: right; margin-top:20px; }
+
+.oku {padding: 10px; margin-top:10px; background-color: #6B4E90; color: #FFF; float: right;}
+.iyazar {padding: 10px; margin-top:10px; width: auto;color: #6B4E90; float: left;}

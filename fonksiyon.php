@@ -4,14 +4,18 @@
     $komut = $db->prepare("SELECT * FROM makale WHERE MakaleID = ?");
     $komut->execute(array($id));
     $sonuc = $komut->fetch(PDO::FETCH_ASSOC);
-    if ($komut->rowCount()) {
-      print "<div class='panel panel-default'>";
-      print "<div class='panel-heading'>" . $sonuc['MakaleBaslik'] . "</div>";
-      print "<div class='panel-body'>";
-      print $sonuc["MakaleIcerik"];
-      print "</div>";
-      print "<div class='panel-footer'><img src='img/sefa.png' />Kadir Sefa Ünal</div>";
-      print "</div>";
+    if ($komut->rowCount()) { 
+        print "<div class='panel panel-default'>";
+        print "<div class='panel-heading'>" . $sonuc['MakaleBaslik'] . "</div>";
+        print "<div class='panel-body'>";
+        print $sonuc["MakaleIcerik"];
+        print "</div>";
+        print "<div class='panel-footer'><img class='yazar' src='img/sefa.png' />
+        <span>Kadir Sefa ÜNAL</span>
+        <span class='tarih'>".$sonuc['EklenmeTarihi']."</span> 
+        </div>";
+        print "</div>";
+      
     }
   }
   
@@ -29,7 +33,7 @@
           
         }
         print "<div class=\"panel panel-default\">";
-        print "<div class=\"panel-heading\">".$row["MakaleBaslik"]."</div>";
+        print "<div class=\"panel-heading\"><a href = \"makale.php?makaleid={$row['MakaleID']}\">".$row["MakaleBaslik"]."</a></div>";
         print "<div class=\"panel-body\">".$detay."</div>";
         print "</div>";
       } 
