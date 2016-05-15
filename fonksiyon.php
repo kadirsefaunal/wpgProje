@@ -5,8 +5,15 @@
     $komut->execute(array($id));
     $sonuc = $komut->fetch(PDO::FETCH_ASSOC);
     if ($komut->rowCount()) {
-      print $sonuc["MakaleID"]. "<br />" . $sonuc["MakaleBaslik"]; 
-    } 
+      print "<div class='panel panel-default'>";
+      print "<div class='panel-heading'>" . $sonuc['MakaleBaslik'] . "</div>";
+      print "<div class='panel-body'>";
+      print $sonuc["MakaleIcerik"];
+      print "</div>";
+      print "<div class='panel-footer'><img src='img/sefa.png' />Kadir Sefa Ünal</div>";
+      print "</div>";
+      
+    }
   }
   
   function kategoriMakaleListele($kategori){
