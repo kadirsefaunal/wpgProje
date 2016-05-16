@@ -30,4 +30,5 @@ footer {background-color:#6B4E90; color:#FFF;}
 .tarih {float: right; margin-top:20px; }
 
 .oku {padding: 10px; margin-top:10px; background-color: #6B4E90; color: #FFF; float: right;}
+.oku:hover{background-color: #1C053A;}
 .iyazar {padding: 10px; margin-top:10px; width: auto;color: #6B4E90; float: left;}

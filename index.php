@@ -4,7 +4,7 @@
   require('include/header.php');
    
   
-  $query = $db->query("SELECT * FROM makale", PDO::FETCH_ASSOC);
+  $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC", PDO::FETCH_ASSOC);
     if ( $query->rowCount() ){
       foreach( $query as $row ){
 

@@ -47,7 +47,7 @@
   
   function kategoriMakaleListele($kategori){
     include("ayar.php");
-    $komut = $db->prepare("SELECT * FROM makale WHERE Kategori = ?");
+    $komut = $db->prepare("SELECT * FROM makale WHERE Kategori = ? ORDER BY MakaleID DESC");
     $komut->execute(array($kategori));
     $sonuc = $komut->fetchAll(PDO::FETCH_ASSOC);
     foreach( $sonuc as $row ){                
