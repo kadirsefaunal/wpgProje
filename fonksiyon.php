@@ -47,7 +47,17 @@
   
   function kategoriMakaleListele($kategori){
     include("ayar.php");
-    $komut = $db->prepare("SELECT * FROM makale WHERE Kategori = ? ORDER BY MakaleID DESC");
+    
+    //Sayfalama
+    $sayfa = isset($_GET['sayfa']) ? (int) $_GET['sayfa'] : 1;//sayfaya gelen değişkenin kontrolü
+    $komut = $db->prepare("SELECT COUNT(*) FROM makale WHERE Kategori = ?");
+    $komut->execute(array($kategori));
+    $sayac = $komut->fetchColumn();
+    $sinir = 5;//sayfada gösterilecek makale sayısı
+    $sayfaSayisi = ceil($sayac / $sinir);//sayfa sayısını bul ve yuvarla
+    $kactan = ($sayfa * $sinir) - $sinir;
+    
+    $komut = $db->prepare("SELECT * FROM makale WHERE Kategori = ? ORDER BY MakaleID DESC LIMIT $kactan, $sinir");
     $komut->execute(array($kategori));
     $sonuc = $komut->fetchAll(PDO::FETCH_ASSOC);
     foreach( $sonuc as $row ){                
@@ -68,6 +78,16 @@
         print "</div>";
         print "</div>";
       } 
+      
+      if($sayfa != 1){
+        print "<a href = '?kategori={$kategori}&sayfa=". ($sayfa - 1) ."'><-</a>";
+      }
+      for ($i=1; $i <= $sayfaSayisi; $i++) { 
+        print "<a href='?kategori={$kategori}&sayfa={$i}'>{$i}</a>";
+      }
+      if($sayfa != $sayfaSayisi){
+        print "<a href = '?kategori={$kategori}&sayfa=". ($sayfa + 1) ."'>-></a>";
+      }
   }
   
   function yazarGetir($yazarid){
