@@ -6,15 +6,14 @@
     <title>Admin Paneli Giriş</title>
 	</head>
     <body>
-        
         <div class="login-page">
             <div class="form">
-                <form class="login-form">
-                <h3><b>Admin Paneli</b></h3>
-                <div class="cizgi"></div>
-                <input type="text" placeholder="Kullanıcı Adı"/>
-                <input type="password" placeholder="Parola"/>
-                <button>GİRİŞ</button>
+                <form class="login-form" action = "admin.php" method = "POST">
+                    <h3><b>Admin Paneli</b></h3>
+                    <div class="cizgi"></div>
+                    <input type="text" placeholder="Kullanıcı Adı" name = "kullaniciadi"/>
+                    <input type="password" placeholder="Parola" name = "kullaniciparola"/>
+                    <button type = submit>GİRİŞ</button>
                 </form>
             </div>
          </div>
