@@ -1,13 +1,27 @@
 <?php
     include("ayar.php");
+    include("fonksiyon.php");
     include("include/adminheader.php");
-    session_start();
-    print "admin panel <br />";
     
     if(!isset($_SESSION["kID"])){
         header("location: login.php");
     }
-    else {
-        print $_SESSION["kID"]. "<br />". $_SESSION["kAdi"]. "<a href = 'cikis.php'>Çıkış</a>";
-    }
 ?>
+
+    <div class="panel panel-default">
+    <div class="panel-heading">Makaleler</div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Kategori</th>
+                <th>Makale Başlığı</th>
+                <th>Eklenme Tarihi</th>
+            </tr>
+            <?php
+                adminMakaleListele();
+            ?>
+        
+    
+</div>
+</body>
+</html>

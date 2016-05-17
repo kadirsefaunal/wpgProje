@@ -1,3 +1,8 @@
+<?php
+    include("ayar.php");
+    session_start();
+    $kAdi = $_SESSION["kAdi"];
+?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,17 +22,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin Paneli</a>
+                <a class="navbar-brand" href="admin.php">Admin Paneli</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                
+                <ul class="nav navbar-nav">
+                    <li><a href="makaleekle.php">Makale Ekle</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <p class="navbar-text">kadirmutlu</p>
+                    <p class="navbar-text"><?php print $kAdi; ?></p>
                     <li><a href="cikis.php">Çıkış Yap</a></li>
                 </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
             </nav>
             </header>
+            <div class="container">

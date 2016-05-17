@@ -21,21 +21,12 @@
         print "<span class='tarih'>".$sonuc['EklenmeTarihi']."</span> 
         </div>";
         print "</div>";
-        //Yorum kısmı
-        
-        print "<div class='panel panel-default'>";
-          print "<div class='panel-body' style='background-color: #eee;'>";
-            yorumGetir($id);
-          print "</div>";
-        print "</div>";
-        
-        
     }
   }
   
   function yorumGetir($makaleid){
     include("ayar.php");
-    $komut = $db->prepare("SELECT * FROM yorumlar WHERE MakaleID = ?");
+    $komut = $db->prepare("SELECT * FROM yorumlar WHERE MakaleID = ? ORDER BY YorumID DESC");
     $komut->execute(array($makaleid));
     $sonuc = $komut->fetchAll(PDO::FETCH_ASSOC);
     foreach( $sonuc as $row ){
@@ -97,4 +88,73 @@
     $yazar = $komut->fetch(PDO::FETCH_ASSOC);
     print "<div class='iyazar'><b>Yazar: <a href = \"yazar.php?yazarid={$yazarid}\">" . $yazar["KullaniciAdi"] . "</a></b></div>";
   }
+  
+  function yorumYap($id, $ad, $yorum){
+    include("ayar.php");
+    $query = $db->prepare("INSERT INTO yorumlar SET MakaleID = ?, AdSoyad = ?, Yorum = ?");
+    $insert = $query->execute(array($id, $ad, $yorum));
+  }
+  
+  /////////
+  
+  function adminMakaleEkle($yID, $kategori, $mBaslik, $mIcerik){
+        include("ayar.php");
+        $query = $db->prepare("INSERT INTO makale SET YazarID = ?, Kategori = ?, MakaleBaslik = ?, MakaleIcerik = ?");
+        $insert = $query->execute(array($yID, $kategori, $mBaslik, $mIcerik));
+        /*if ( $insert ){
+            //$last_id = $db->lastInsertId();
+            print "insert işlemi başarılı!";
+        }*/
+    }
+    
+    function adminMakaleListele(){
+        include("ayar.php");
+        $sayfa = isset($_GET['sayfa']) ? (int) $_GET['sayfa'] : 1;//sayfaya gelen değişkenin kontrolü
+        $sayac = $db->query("SELECT COUNT(*) FROM makale", PDO::FETCH_ASSOC)->fetchColumn();//veritabanındaki makale sayısı
+        $sinir = 10;//sayfada gösterilecek makale sayısı
+        $sayfaSayisi = ceil($sayac / $sinir);//sayfa sayısını bul ve yuvarla
+        $kactan = ($sayfa * $sinir) - $sinir;
+        
+        $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC LIMIT $kactan, $sinir", PDO::FETCH_ASSOC);
+            if ( $query->rowCount() ){
+                foreach( $query as $row ){
+                    print "<tr>";
+                    print  "<td>".$row['MakaleID']."</td>";
+                    print  "<td>".$row["Kategori"]."</td>";
+                    print  "<td>".$row["MakaleBaslik"]."</td>";
+                    print  "<td>".$row["EklenmeTarihi"]."</td>";
+                    print  "<td>
+                    <div class='btn-group' role='group' aria-label='...'>
+                      <button type='button' class='btn btn-default' onClick=\"parent.location='guncelle.php?id={$row['MakaleID']}'\">Güncelle</button>
+                      <button type='button' class='btn btn-default' onClick=\"parent.location='sil.php?id={$row['MakaleID']}'\">Sil</button>
+                    </div>
+                    </td>";
+                    print "</tr>";
+                }
+            }
+        print "</table>";
+        print "</div>";
+            
+        if($sayfa != 1){
+            print "<a href = '?sayfa=". ($sayfa - 1) ."'><-</a>";
+        }
+        for ($i=1; $i <= $sayfaSayisi; $i++) { 
+            print "<a href='?sayfa={$i}'>{$i}</a>";
+        }
+        if($sayfa != $sayfaSayisi){
+            print "<a href = '?sayfa=". ($sayfa + 1) ."'>-></a>";
+        }
+    }
+    
+    function makaleSil($id){
+      include("ayar.php");
+      $query = $db->prepare("DELETE FROM makale WHERE MakaleID = ?");
+      $delete = $query->execute(array($id));
+    }
+    
+    function makaleGuncelle($mID, $mBaslik, $mIcerik){
+      include("ayar.php");
+      $query = $db->prepare("UPDATE makale SET MakaleBaslik = ?, MakaleIcerik = ? WHERE MakaleID = ?");
+      $update = $query->execute(array($mBaslik, $mIcerik, $mID));
+    }
 ?>
