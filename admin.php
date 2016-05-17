@@ -1,5 +1,6 @@
 <?php
     include("ayar.php");
+    include("include/adminheader.php");
     session_start();
     print "admin panel <br />";
     
