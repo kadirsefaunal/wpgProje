@@ -3,7 +3,6 @@
   <div class="panel panel-default">
    	<div class="panel-heading"><b>Son Yazılar</b></div>
     <div class="panel-body">
-    <!--<ul class="liste">-->
     <div class = "list-group" style="margin-bottom:0px;">
     <?php //Son makale listeleme
       include("ayar.php");
@@ -11,22 +10,15 @@
       if ( $query->rowCount() ){
         foreach( $query as $row ){    
           print "<a href = \"makale.php?makaleid={$row['MakaleID']}\" class = 'list-group-item'>" . $row["MakaleBaslik"] . "</a>";
-          //print "<li><a href = \"makale.php?makaleid={$row['MakaleID']}\">" . $row["MakaleBaslik"] . "</a></li>";
         }
       }
     ?>
     </div>
-    <!--</ul>-->
     </div>
   </div>
   <div class="panel panel-default">
    	<div class="panel-heading"><b>Kategoriler</b></div>
     <div class="panel-body">
-    <!--<ul class="liste">
-      <li><a href = "kategori.php?kategori=Yazılım">Yazılım</a></li>
-      <li><a href = "kategori.php?kategori=Donanım">Donanım</a></li>
-      <li><a href = "kategori.php?kategori=KonuDışı">Konu Dışı</a></li>
-    </ul>-->
     <?php
       include("ayar.php");
       $yazilim = $db->query("SELECT COUNT(*) FROM makale WHERE Kategori = 'Yazılım'", PDO::FETCH_ASSOC)->fetchColumn();

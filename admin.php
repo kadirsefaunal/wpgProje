@@ -3,7 +3,7 @@
     include("fonksiyon.php");
     include("include/adminheader.php");
     
-    if(!isset($_SESSION["kID"])){
+    if(!isset($_SESSION["kID"])){ //Giriş yapılmamışsa giriş ekranına yönlendir
         header("location: login.php");
     }
 ?>
@@ -17,11 +17,9 @@
                 <th>Makale Başlığı</th>
                 <th>Eklenme Tarihi</th>
             </tr>
-            <?php
-                adminMakaleListele();
-            ?>
+            <?php adminMakaleListele(); ?>
         
     
-</div>
+</div><!--container-->
 </body>
 </html>

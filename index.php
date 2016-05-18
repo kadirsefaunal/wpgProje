@@ -11,7 +11,7 @@
   $sayfaSayisi = ceil($sayac / $sinir);//sayfa sayısını bul ve yuvarla
   $kactan = ($sayfa * $sinir) - $sinir;
   
-  $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC LIMIT $kactan, $sinir", PDO::FETCH_ASSOC);
+  $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC LIMIT $kactan, $sinir", PDO::FETCH_ASSOC); //istenilen sayıdaki ve sayfadaki makaleleri listele
     if ( $query->rowCount() ){
       foreach( $query as $row ){
 
@@ -33,23 +33,27 @@
         print "</div>";
       }
     }
-print "<nav>
-  <ul class='pagination'>
-    <li>";   
-  if($sayfa != 1){
-    print "<a href = '?sayfa=". ($sayfa - 1) ."' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
-  }
-  
-  for ($i=1; $i <= $sayfaSayisi; $i++) { 
-    print "<li><a href='?sayfa={$i}'>{$i}</a></li>";
-  }
-  print "<li>";
-  if($sayfa != $sayfaSayisi){
-    print "<a href = '?sayfa=". ($sayfa + 1) ."' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
-  }
-print "</ul></nav>";  
-  require('include/aside.php');
-  require('include/footer.php');
+    
+    //sayfa sayıları yazma
+    print "<nav> 
+            <ul class='pagination'>
+              <li>";   
+                if($sayfa != 1){
+                  print "<a href = '?sayfa=". ($sayfa - 1) ."' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+                }
+      
+                for ($i=1; $i <= $sayfaSayisi; $i++) { 
+                  print "<li><a href='?sayfa={$i}'>{$i}</a></li>";
+                }
+        print "<li>";
+        if($sayfa != $sayfaSayisi){
+          print "<a href = '?sayfa=". ($sayfa + 1) ."' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
+        }
+    print "</ul></nav>"; 
+
+ 
+    require('include/aside.php');
+    require('include/footer.php');
 ?>
 
 

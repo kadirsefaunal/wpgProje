@@ -1,7 +1,7 @@
 <?php
     include("ayar.php");
     session_start();
-    if(!isset($_SESSION["kID"])){
+    if(!isset($_SESSION["kID"])){ //Sayfa post edildiyse kullanıcının olup olmadığını kontrol yap ve giriş yap
         $kAdi = @$_POST["kullaniciadi"];
         $kParola = @$_POST["kullaniciparola"];
         $komut = $db->prepare("SELECT * FROM kullanicilar WHERE KullaniciAdi = ? AND KullaniciSifre = ?");
@@ -24,10 +24,10 @@
 
 <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/login.css" rel="stylesheet" />
-    <title>Admin Paneli Giriş</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/login.css" rel="stylesheet" />
+        <title>Admin Paneli Giriş</title>
 	</head>
     <body>
         <div class="login-page">
