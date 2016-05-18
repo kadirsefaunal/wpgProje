@@ -1,7 +1,7 @@
 </div>
 <div class="col-md-4">
   <div class="panel panel-default">
-   	<div class="panel-heading">Son Yazılar</div>
+   	<div class="panel-heading"><b>Son Yazılar</b></div>
     <div class="panel-body">
     <!--<ul class="liste">-->
     <div class = "list-group" style="margin-bottom:0px;">
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="panel panel-default">
-   	<div class="panel-heading">Kategoriler</div>
+   	<div class="panel-heading"><b>Kategoriler</b></div>
     <div class="panel-body">
     <!--<ul class="liste">
       <li><a href = "kategori.php?kategori=Yazılım">Yazılım</a></li>

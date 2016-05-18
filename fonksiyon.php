@@ -6,7 +6,7 @@
     $sonuc = $komut->fetch(PDO::FETCH_ASSOC);
     if ($komut->rowCount()) { 
         print "<div class='panel panel-default'>";
-        print "<div class='panel-heading'>" . $sonuc['MakaleBaslik'] . "</div>";
+        print "<div class='panel-heading'><b>" . $sonuc['MakaleBaslik'] . "</b></div>";
         print "<div class='panel-body'>";
         print $sonuc["MakaleIcerik"];
         print "</div>";

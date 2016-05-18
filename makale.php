@@ -25,24 +25,19 @@
        <div class='panel panel-default'>
        <div class='panel-body' style='background-color: #eee;'>
             <div class = 'panel panel-default'>
+              <div class = "yorumalani">
               <form action = "makale.php" method = "POST">
-                <table>
-                  <tr>
-                    <td>Ad: </td>
-                    <td><input type = "text" name = "ad" /></td>
-                  </tr>
-                  <tr>
-                    <td>Yorum: </td>
-                    <td><textarea name = "yorum" ></textarea></td>
-                  </tr>
-                  <tr>
-                    <td><button type = "submit" name = "submit" value = "{$mid}">Yorum Yap</button></td>
-                  </tr>
-                  <tr>
-                    <td><input type = "hidden" name = "id" value = "<?php print $mid ?>" /></td>
-                  </tr>
-                </table>
+                  <p>Ad:</p>
+                    <p><input type = "text" class="form-control"  name = "ad" /></p>
+                  <p>Yorum:</p>
+                    <p><textarea class="form-control" name = "yorum" rows="3"></textarea></p>
+                  
+                  <button class="btn btn-primary" type = "submit" name = "submit" value = "{$mid}">Yorum Yap</button>
+                  
+                  <input type = "hidden" name = "id" value = "<?php print $mid ?>" />
+                  
               </form>
+              </div>
             </div>
             <?php yorumGetir($mid); ?>
           </div>

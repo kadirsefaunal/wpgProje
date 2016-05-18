@@ -20,7 +20,7 @@
         $limit = 600;
         
         print "<div class=\"panel panel-default\">";
-        print "<div class=\"panel-heading\"><a href = \"makale.php?makaleid={$row['MakaleID']}\">".$row["MakaleBaslik"]."</a></div>";
+        print "<div class=\"panel-heading\"><a href = \"makale.php?makaleid={$row['MakaleID']}\"><b>".$row["MakaleBaslik"]."</b></a></div>";
         print "<div class=\"panel-body\">";
         if ($uzunluk > $limit) {
           print $detay = substr($detay,0,$limit) . "...<br />";
@@ -33,22 +33,24 @@
         print "</div>";
       }
     }
-    
+print "<nav>
+  <ul class='pagination'>
+    <li>";   
   if($sayfa != 1){
-    print "<a href = '?sayfa=". ($sayfa - 1) ."'><-</a>";
-  }
-  for ($i=1; $i <= $sayfaSayisi; $i++) { 
-    print "<a href='?sayfa={$i}'>{$i}</a>";
-  }
-  if($sayfa != $sayfaSayisi){
-    print "<a href = '?sayfa=". ($sayfa + 1) ."'>-></a>";
+    print "<a href = '?sayfa=". ($sayfa - 1) ."' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
   }
   
+  for ($i=1; $i <= $sayfaSayisi; $i++) { 
+    print "<li><a href='?sayfa={$i}'>{$i}</a></li>";
+  }
+  print "<li>";
+  if($sayfa != $sayfaSayisi){
+    print "<a href = '?sayfa=". ($sayfa + 1) ."' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
+  }
+print "</ul></nav>";  
   require('include/aside.php');
   require('include/footer.php');
 ?>
-
-
 
 
 

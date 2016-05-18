@@ -9,7 +9,7 @@
 
 /* İçerik */
 .panel-body {text-align: justify;}
-.panel-default .panel-heading {background-color: #e1ccfd;}
+.panel-default .panel-heading {background-color: #e1ccfd; color: #6B4E90;}
 
 /* Aside */
 .liste {list-style: none; margin-left: -35px;}
@@ -32,5 +32,12 @@ footer {background-color:#6B4E90; color:#FFF;}
 .oku {padding: 10px; margin-top:10px; background-color: #6B4E90; color: #FFF; float: right;}
 .oku:hover{background-color: #1C053A;}
 .iyazar {padding: 10px; margin-top:10px; width: auto;color: #6B4E90; float: left;}
+.iyazar a {text-decoration: none;}
 
+.panel-heading>a {text-decoration: none; color: #6B4E90; font-size: 15px;}
+.panel-heading>a:hover {color: #6B4E90;}
 
+.badge {background-color: #6B4E90;}
+
+.yorumalani {margin: 15px;}
+.btn-primary {width: 100%;}
