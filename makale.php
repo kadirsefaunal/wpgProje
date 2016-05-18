@@ -2,25 +2,24 @@
   include("ayar.php");
   require('include/header.php');
   include("fonksiyon.php");
-    session_start();
-    
-    
-    if(isset($_POST["submit"])){
-      $id = $_SESSION["makaleID"];
-      $ad = $_POST["ad"];
-      $yorum = $_POST["yorum"];
-      yorumYap($id, $ad, $yorum);
-      header("location: makale.php?makaleid=7");
-    }
     
     $mid = $_GET["makaleid"];
     if($mid == null){
       header("location: index.php");
     }
     else {
-      $_SESSION["makaleID"] = $mid;
       makaleGetir($mid);
     }
+    
+    if(isset($_POST["submit"])){
+      $id = @$_POST["id"];
+      $ad = @$_POST["ad"];
+      $yorum = @$_POST["yorum"];
+      yorumYap($id, $ad, $yorum);
+      header("location: makale.php?makaleid=".$id."");
+    }
+    
+    
 ?>
       
        <div class='panel panel-default'>
@@ -37,7 +36,10 @@
                     <td><textarea name = "yorum" ></textarea></td>
                   </tr>
                   <tr>
-                    <td><button type = "submit" name = "submit">Yorum Yap</button></td>
+                    <td><button type = "submit" name = "submit" value = "{$mid}">Yorum Yap</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type = "hidden" name = "id" value = "<?php print $mid ?>" /></td>
                   </tr>
                 </table>
               </form>

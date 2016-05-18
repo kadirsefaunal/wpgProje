@@ -10,6 +10,9 @@
         makaleGuncelle($id, $baslik, $icerik);
         header("location: admin.php");
     }
+    /*else{
+        header("location: admin.php");
+    }*/
     
     if($_GET["id"] != null){
         $id = $_GET["id"];
@@ -21,8 +24,7 @@
             print "<form action = 'guncelle.php' method = 'POST'>";
             print "<table>";
                 print "<tr>";
-                    print "<td>Makale ID </td>";
-                    print "<td><input type = 'text' name = 'id' value ='".$sonuc["MakaleID"]."' /></td>";
+                    print "<td><input type = 'hidden' name = 'id' value ='".$sonuc["MakaleID"]."' /></td>";
                 print "</tr>";
                 print "<tr>";
                     print "<td>Başlık </td>";
@@ -45,5 +47,6 @@
 
 ?>
 </div>
+<script src="ckeditor/ckeditor.js">  </script>
 </body>
 </html>

@@ -93,6 +93,7 @@
     include("ayar.php");
     $query = $db->prepare("INSERT INTO yorumlar SET MakaleID = ?, AdSoyad = ?, Yorum = ?");
     $insert = $query->execute(array($id, $ad, $yorum));
+    
   }
   
   /////////
