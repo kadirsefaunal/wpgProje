@@ -13,7 +13,7 @@
             header("location: admin.php");
         }else{
             if($kAdi != null && $kParola != null){
-                print "Kullanıcı adı yada parola hatalı";
+                print "<center><div class='alert alert-danger' role='alert'>Kullanıcı adı yada parola hatalı</div></center>";
             }
         }
     }
