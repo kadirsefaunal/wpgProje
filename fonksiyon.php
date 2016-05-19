@@ -115,7 +115,7 @@
         include("ayar.php");
         $sayfa = isset($_GET['sayfa']) ? (int) $_GET['sayfa'] : 1;//sayfaya gelen değişkenin kontrolü
         $sayac = $db->query("SELECT COUNT(*) FROM makale", PDO::FETCH_ASSOC)->fetchColumn();//veritabanındaki makale sayısı
-        $sinir = 10;//sayfada gösterilecek makale sayısı
+        $sinir = 8;//sayfada gösterilecek makale sayısı
         $sayfaSayisi = ceil($sayac / $sinir);//sayfa sayısını bul ve yuvarla
         $kactan = ($sayfa * $sinir) - $sinir;
         
