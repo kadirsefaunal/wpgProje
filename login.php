@@ -4,15 +4,15 @@
     if(!isset($_SESSION["kID"])){ //Sayfa post edildiyse kullanıcının olup olmadığını kontrol yap ve giriş yap
         $kAdi = @$_POST["kullaniciadi"];
         $kParola = @$_POST["kullaniciparola"];
-        $komut = $db->prepare("SELECT * FROM kullanicilar WHERE KullaniciAdi = ? AND KullaniciSifre = ?");
-        $komut->execute(array($kAdi, $kParola));
-        $sonuc = $komut->fetch(PDO::FETCH_ASSOC);
-        if ($komut->rowCount()) { 
-            $_SESSION["kID"] = $sonuc["KullaniciID"];
-            $_SESSION["kAdi"] = $sonuc["KullaniciAdi"];
-            header("location: admin.php");
-        }else{
-            if($kAdi != null && $kParola != null){
+        if($kAdi != null && $kParola != null){
+            $komut = $db->prepare("SELECT * FROM kullanicilar WHERE KullaniciAdi = ? AND KullaniciSifre = ?");
+            $komut->execute(array($kAdi, $kParola));
+            $sonuc = $komut->fetch(PDO::FETCH_ASSOC);
+            if ($komut->rowCount()) { 
+                $_SESSION["kID"] = $sonuc["KullaniciID"];
+                $_SESSION["kAdi"] = $sonuc["KullaniciAdi"];
+                header("location: admin.php");
+            }else{
                 print "<center><div class='alert alert-danger' role='alert'>Kullanıcı adı yada parola hatalı</div></center>";
             }
         }

@@ -10,8 +10,11 @@
   $sinir = 5;//sayfada gösterilecek makale sayısı
   $sayfaSayisi = ceil($sayac / $sinir);//sayfa sayısını bul ve yuvarla
   $kactan = ($sayfa * $sinir) - $sinir;
-  
-  $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC LIMIT $kactan, $sinir", PDO::FETCH_ASSOC); //istenilen sayıdaki ve sayfadaki makaleleri listele
+  if($sayfa < 1 || $sayfa > $sayfaSayisi){
+    header("location: index.php");
+  }
+  else{
+    $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC LIMIT $kactan, $sinir", PDO::FETCH_ASSOC); //istenilen sayıdaki ve sayfadaki makaleleri listele
     if ( $query->rowCount() ){
       foreach( $query as $row ){
 
@@ -33,7 +36,7 @@
         print "</div>";
       }
     }
-    
+  }
     //sayfa sayıları yazma
     print "<nav> 
             <ul class='pagination'>

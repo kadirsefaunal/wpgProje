@@ -15,7 +15,9 @@
       $id = @$_POST["id"];
       $ad = @$_POST["ad"];
       $yorum = @$_POST["yorum"];
-      yorumYap($id, $ad, $yorum);
+      if($ad != null && $yorum != null){
+        yorumYap($id, $ad, $yorum);
+      }
       header("location: makale.php?makaleid=".$id."");
     }
 ?>

@@ -17,7 +17,6 @@
         $yazar = $komut2->fetch(PDO::FETCH_ASSOC);
         print "<img class='yazar' src='" . $yazar["ProfilFoto"] . "' />";
         print "<b><a href = \"hakkimizda.php\">" . $yazar["KullaniciAdi"] . "</a></b>";
-        
         print "<span class='tarih'>".$sonuc['EklenmeTarihi']."</span> 
         </div>";
         print "</div>";
@@ -44,11 +43,6 @@
       print "</div>";
     }
   }
-  
-
-  
-  
-  
   
   
   function kategoriMakaleListele($kategori){
