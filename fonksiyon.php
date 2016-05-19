@@ -30,8 +30,7 @@
     $sonuc = $komut->fetchAll(PDO::FETCH_ASSOC);
     foreach( $sonuc as $row ){
       print "<div class = 'panel panel-default' style='background-color: #e1ccfd'>";
-        print "<center><table width='100%' border='0'>
-  <tr>";
+        print "<center><table width='100%' border='0'> <tr>";
         print "<td width='15%' rowspan='2'><center><img src='img/wb.png' width='70' height='70' /></center></td>";
         print "<td width='60%'><b>". $row["AdSoyad"] ."</b></td>";
         print "<td width='25%'><b>". $row["Tarih"] ."</b></td>";
@@ -39,15 +38,12 @@
         print "<tr>";
         print "<td colspan='2'>" . $row["Yorum"] . "</td>";
         print "</tr></table></center>";
-        //print $row["AdSoyad"] . " " . $row["Tarih"] . "<br />" . $row["Yorum"]. "<br />";
       print "</div>";
     }
   }
   
-  
   function kategoriMakaleListele($kategori){
     include("ayar.php");
-    
     //Sayfalama
     $sayfa = isset($_GET['sayfa']) ? (int) $_GET['sayfa'] : 1;//sayfaya gelen değişkenin kontrolü
     $komut = $db->prepare("SELECT COUNT(*) FROM makale WHERE Kategori = ?");
@@ -109,16 +105,10 @@
     
   }
   
-  /////////
-  
-  function adminMakaleEkle($yID, $kategori, $mBaslik, $mIcerik){
+    function adminMakaleEkle($yID, $kategori, $mBaslik, $mIcerik){
         include("ayar.php");
         $query = $db->prepare("INSERT INTO makale SET YazarID = ?, Kategori = ?, MakaleBaslik = ?, MakaleIcerik = ?");
         $insert = $query->execute(array($yID, $kategori, $mBaslik, $mIcerik));
-        /*if ( $insert ){
-            //$last_id = $db->lastInsertId();
-            print "insert işlemi başarılı!";
-        }*/
     }
     
     function adminMakaleListele(){
@@ -130,34 +120,39 @@
         $kactan = ($sayfa * $sinir) - $sinir;
         
         $query = $db->query("SELECT * FROM makale ORDER BY MakaleID DESC LIMIT $kactan, $sinir", PDO::FETCH_ASSOC);
-            if ( $query->rowCount() ){
-                foreach( $query as $row ){
-                    print "<tr>";
-                    print  "<td>".$row['MakaleID']."</td>";
-                    print  "<td>".$row["Kategori"]."</td>";
-                    print  "<td>".$row["MakaleBaslik"]."</td>";
-                    print  "<td>".$row["EklenmeTarihi"]."</td>";
-                    print  "<td>
-                    <div class='btn-group' role='group' aria-label='...'>
-                      <button type='button' class='btn btn-default' onClick=\"parent.location='guncelle.php?id={$row['MakaleID']}'\">Güncelle</button>
-                      <button type='button' class='btn btn-default' onClick=\"parent.location='sil.php?id={$row['MakaleID']}'\">Sil</button>
-                    </div>
+        if ( $query->rowCount() ){
+            foreach( $query as $row ){
+                print "<tr>";
+                print  "<td>".$row['MakaleID']."</td>";
+                print  "<td>".$row["Kategori"]."</td>";
+                print  "<td>".$row["MakaleBaslik"]."</td>";
+                print  "<td>".$row["EklenmeTarihi"]."</td>";
+                print  "<td>
+                <div class='btn-group' role='group' aria-label='...'>
+                  <button type='button' class='btn btn-default' onClick=\"parent.location='guncelle.php?id={$row['MakaleID']}'\">Güncelle</button>
+                  <button type='button' class='btn btn-default' onClick=\"parent.location='sil.php?id={$row['MakaleID']}'\">Sil</button>
+                </div>
                     </td>";
-                    print "</tr>";
-                }
+                print "</tr>";
             }
-        print "</table>";
-        print "</div>";
-            
-        if($sayfa != 1){
-            print "<a href = '?sayfa=". ($sayfa - 1) ."'><-</a>";
         }
+        
+        print "</table>
+          </div>";
+        
+        print "<nav> 
+            <ul class='pagination'>
+              <li>";   
+        if($sayfa != 1){
+          print "<a href = '?sayfa=". ($sayfa - 1) ."' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+        } 
         for ($i=1; $i <= $sayfaSayisi; $i++) { 
-            print "<a href='?sayfa={$i}'>{$i}</a>";
+          print "<li><a href='?sayfa={$i}'>{$i}</a></li>";
         }
         if($sayfa != $sayfaSayisi){
-            print "<a href = '?sayfa=". ($sayfa + 1) ."'>-></a>";
+          print "<li><a href = '?sayfa=". ($sayfa + 1) ."' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
         }
+        print "</ul></nav>"; 
     }
     
     function makaleSil($id){
