@@ -31,10 +31,25 @@
     $sonuc = $komut->fetchAll(PDO::FETCH_ASSOC);
     foreach( $sonuc as $row ){
       print "<div class = 'panel panel-default' style='background-color: #e1ccfd'>";
-        print $row["AdSoyad"] . " " . $row["Tarih"] . "<br />" . $row["Yorum"]. "<br />";
+        print "<center><table width='100%' border='0'>
+  <tr>";
+        print "<td width='15%' rowspan='2'><center><img src='img/wb.png' width='70' height='70' /></center></td>";
+        print "<td width='60%'><b>". $row["AdSoyad"] ."</b></td>";
+        print "<td width='25%'><b>". $row["Tarih"] ."</b></td>";
+        print "</tr>";
+        print "<tr>";
+        print "<td colspan='2'>" . $row["Yorum"] . "</td>";
+        print "</tr></table></center>";
+        //print $row["AdSoyad"] . " " . $row["Tarih"] . "<br />" . $row["Yorum"]. "<br />";
       print "</div>";
     }
   }
+  
+
+  
+  
+  
+  
   
   function kategoriMakaleListele($kategori){
     include("ayar.php");
@@ -57,7 +72,7 @@
         $limit = 600;
         
         print "<div class=\"panel panel-default\">";
-        print "<div class=\"panel-heading\"><a href = \"makale.php?makaleid={$row['MakaleID']}\">".$row["MakaleBaslik"]."</a></div>";
+        print "<div class=\"panel-heading\"><a href = \"makale.php?makaleid={$row['MakaleID']}\"><b>".$row["MakaleBaslik"]."</b></a></div>";
         print "<div class=\"panel-body\">";
         if ($uzunluk > $limit) {
           print $detay = substr($detay,0,$limit) . "...<br />";
@@ -69,16 +84,20 @@
         print "</div>";
         print "</div>";
       } 
-      
+      print "<nav>
+        <ul class='pagination'>
+          <li>";      
       if($sayfa != 1){
-        print "<a href = '?kategori={$kategori}&sayfa=". ($sayfa - 1) ."'><-</a>";
-      }
+        print "<a href = '?kategori={$kategori}&sayfa=". ($sayfa - 1) ."' aria-label=
+        'Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+      }   
       for ($i=1; $i <= $sayfaSayisi; $i++) { 
-        print "<a href='?kategori={$kategori}&sayfa={$i}'>{$i}</a>";
+        print "<li><a href='?kategori={$kategori}&sayfa={$i}'>{$i}</a></li>";
       }
       if($sayfa != $sayfaSayisi){
-        print "<a href = '?kategori={$kategori}&sayfa=". ($sayfa + 1) ."'>-></a>";
+        print "<li><a href = '?kategori={$kategori}&sayfa=". ($sayfa + 1) ."'>-></a></li>";
       }
+      print "</ul></nav>";
   }
   
   function yazarGetir($yazarid){

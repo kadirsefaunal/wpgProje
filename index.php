@@ -38,17 +38,15 @@
     print "<nav> 
             <ul class='pagination'>
               <li>";   
-                if($sayfa != 1){
-                  print "<a href = '?sayfa=". ($sayfa - 1) ."' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
-                }
-      
-                for ($i=1; $i <= $sayfaSayisi; $i++) { 
-                  print "<li><a href='?sayfa={$i}'>{$i}</a></li>";
-                }
-        print "<li>";
-        if($sayfa != $sayfaSayisi){
-          print "<a href = '?sayfa=". ($sayfa + 1) ."' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
-        }
+    if($sayfa != 1){
+       print "<a href = '?sayfa=". ($sayfa - 1) ."' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+    } 
+    for ($i=1; $i <= $sayfaSayisi; $i++) { 
+    print "<li><a href='?sayfa={$i}'>{$i}</a></li>";
+    }
+    if($sayfa != $sayfaSayisi){
+      print "<li><a href = '?sayfa=". ($sayfa + 1) ."' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
+    }
     print "</ul></nav>"; 
 
  
