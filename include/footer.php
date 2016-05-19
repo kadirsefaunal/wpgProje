@@ -13,10 +13,9 @@
   		<div class="col-md-4"><br />
           <span class="fbaslik">SAYFALAR</span><div class="cizgi"></div>
           <ul class="altmenu">
-              <li><a href="#">Anasayfa</a></li>
-              <li><a href="#">Hakkımızda</a></li>
-              <li><a href="#">İletişim</a></li>
-              <li><a href="#">Yazarlar</a></li>
+              <li><a href="index.php">Anasayfa</a></li>
+              <li><a href="hakkimizda.php">Hakkımızda</a></li>
+              <li><a href="iletisim.php">İletişim</a></li>
           </ul>
       </div>
   		<div class="col-md-4"><br />

@@ -16,7 +16,7 @@
         $komut2->execute(array($sonuc["YazarID"]));
         $yazar = $komut2->fetch(PDO::FETCH_ASSOC);
         print "<img class='yazar' src='" . $yazar["ProfilFoto"] . "' />";
-        print "<b><a href = \"yazar.php?yazarid={$sonuc['YazarID']}\">" . $yazar["KullaniciAdi"] . "</a></b>";
+        print "<b><a href = \"hakkimizda.php\">" . $yazar["KullaniciAdi"] . "</a></b>";
         
         print "<span class='tarih'>".$sonuc['EklenmeTarihi']."</span> 
         </div>";
@@ -105,7 +105,7 @@
     $komut = $db->prepare("SELECT KullaniciID, KullaniciAdi FROM kullanicilar WHERE KullaniciID = ?");
     $komut->execute(array($yazarid));
     $yazar = $komut->fetch(PDO::FETCH_ASSOC);
-    print "<div class='iyazar'><b>Yazar: <a href = \"yazar.php?yazarid={$yazarid}\">" . $yazar["KullaniciAdi"] . "</a></b></div>";
+    print "<div class='iyazar'><b>Yazar: <a href = \"hakkimizda.php\">" . $yazar["KullaniciAdi"] . "</a></b></div>";
   }
   
   function yorumYap($id, $ad, $yorum){

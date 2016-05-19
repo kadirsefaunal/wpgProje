@@ -11,29 +11,19 @@
     }
 ?>
 <form action = "makaleekle.php" method = "POST">
-    <table>
-        <tr>
-            <td>Kategori </td>
-            <td>
-                <select name = "kategoriler">
+    <div class="form-group">
+            Kategori
+                <select class="form-control" name = "kategoriler">
                     <option value="Yazılım">Yazılım</option>
                     <option value="Donanım">Donanım</option>
                     <option value="KonuDışı">Konu Dışı</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Başlık </td>
-            <td><input type = "text" name = "baslik" /></td>
-        </tr>
-        <tr>
-            <td>Makale </td>
-            <td><textarea class ="ckeditor" name = "icerik" cols = "70" rows = "10"></textarea></td>
-        </tr>
-        <tr>
-            <td><button type = "submit" name = "submit">Ekle</button></td>
-        </tr>
-    </table>
+                </select><br />
+            Başlık
+            <input class="form-control" type = "text" name = "baslik" /><br />
+            Makale
+            <textarea class ="ckeditor" name = "icerik" cols = "70" rows = "10"></textarea><br />
+            <button class="btn btn-primary" type = "submit" name = "submit">Makale Ekle</button>
+    </div>
 </form>
 
 </div><!--container-->

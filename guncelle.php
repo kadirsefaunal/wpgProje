@@ -19,23 +19,18 @@
         $sonuc = $komut->fetch(PDO::FETCH_ASSOC);
         if ($komut->rowCount()) { 
             print "<form action = 'guncelle.php' method = 'POST'>";
-            print "<table>";
-                print "<tr>";
-                    print "<td><input type = 'hidden' name = 'id' value ='".$sonuc["MakaleID"]."' /></td>";
-                print "</tr>";
-                print "<tr>";
-                    print "<td>Başlık </td>";
-                    print "<td><input type = 'text' name = 'baslik' value ='".$sonuc["MakaleBaslik"]."' /></td>";
-                print "</tr>";
-                print "<tr>";
-                    print "<td>Makale </td>";
-                    print "<td><textarea class ='ckeditor' name = 'icerik' cols = '70' rows = '10'>".$sonuc["MakaleIcerik"]."</textarea></td>";
-                print "</tr>";
-                print "<tr>";
-                    print "<td><button type = 'submit' name = 'submit'>Güncelle</button></td>";
-                print "</tr>";
-            print "</table>";
-            print "</form>";
+                print "<div class='form-group'>";
+                
+                    print "<input type = 'hidden' name = 'id' value ='".$sonuc["MakaleID"]."' />";
+                
+                    print "Başlık";
+                    print "<input class='form-control' type = 'text' name = 'baslik' value ='".$sonuc["MakaleBaslik"]."' /><br />";
+                
+                    print "Makale";
+                    print "<textarea class ='ckeditor' name = 'icerik' cols = '70' rows = '10'>".$sonuc["MakaleIcerik"]."</textarea><br />";
+                
+                    print "<button class='btn btn-primary' type = 'submit' name = 'submit'>Makale Güncelle</button>";
+                print "</div>";
         }
     }
     else{
