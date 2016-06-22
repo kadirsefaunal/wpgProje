@@ -28,7 +28,7 @@
                     <li><a href="makaleekle.php">Makale Ekle</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <p class="navbar-text"><?php print $kAdi; ?></p>
+                    <p class="navbar-text">&emsp;<?php print $kAdi; ?></p>
                     <li><a href="cikis.php">Çıkış Yap</a></li>
                 </ul>
                 </div>

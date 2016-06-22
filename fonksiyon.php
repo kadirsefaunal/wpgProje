@@ -85,7 +85,7 @@
         print "<li><a href='?kategori={$kategori}&sayfa={$i}'>{$i}</a></li>";
       }
       if($sayfa != $sayfaSayisi){
-        print "<li><a href = '?kategori={$kategori}&sayfa=". ($sayfa + 1) ."'>-></a></li>";
+        print "<li><a href = '?kategori={$kategori}&sayfa=". ($sayfa + 1) ."'>&raquo;</a></li>";
       }
       print "</ul></nav>";
   }
